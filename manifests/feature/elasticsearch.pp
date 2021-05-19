@@ -93,6 +93,7 @@ class icinga2::feature::elasticsearch(
   File {
     owner   => $user,
     group   => $group,
+    seltype => 'icinga2_var_lib_t',
   }
 
   if $enable_ssl {

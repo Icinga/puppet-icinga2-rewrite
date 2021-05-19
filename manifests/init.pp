@@ -167,9 +167,9 @@ class icinga2 (
     notify => Class['::icinga2::service'],
   }
   -> class { '::icinga2::install': }
-  -> File <| ensure == 'directory' and tag == 'icinga2::config::file' |>
+  -> File <| ensure == 'directory' and tag == 'icinga2::config::file' |> { seltype => 'icinga2_etc_t' }
   -> class { '::icinga2::config': notify => Class['::icinga2::service'] }
-  -> File <| ensure != 'directory' and tag == 'icinga2::config::file' |>
+  -> File <| ensure != 'directory' and tag == 'icinga2::config::file' |> { seltype => 'icinga2_etc_t' }
   ~> class { '::icinga2::service': }
   -> anchor { '::icinga2::end':
     subscribe => Class['::icinga2::config'],

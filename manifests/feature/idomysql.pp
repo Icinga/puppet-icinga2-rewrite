@@ -159,6 +159,7 @@ class icinga2::feature::idomysql(
   File {
     owner   => $owner,
     group   => $group,
+    seltype => 'icinga2_var_lib_t',
   }
 
 

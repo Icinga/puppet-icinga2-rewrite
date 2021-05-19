@@ -96,9 +96,10 @@ define icinga2::object(
 
   if !defined(Concat[$target]) {
     concat { $target:
-      ensure => present,
-      tag    => 'icinga2::config::file',
-      warn   => true,
+      ensure  => present,
+      tag     => 'icinga2::config::file',
+      warn    => true,
+      seltype => 'icinga2_etc_t',
     }
   }
 

@@ -34,10 +34,18 @@ class icinga2::install {
     }
   }
 
-  file { [$conf_dir, $cert_dir]:
-    ensure => directory,
-    owner  => $user,
-    group  => $group,
+  file { $conf_dir:
+    ensure  => directory,
+    owner   => $user,
+    group   => $group,
+    seltype => 'icinga2_etc_t',
+  }
+
+  file { $cert_dir:
+    ensure  => directory,
+    owner   => $user,
+    group   => $group,
+    seltype => 'icinga2_var_lib_t',
   }
 
 }

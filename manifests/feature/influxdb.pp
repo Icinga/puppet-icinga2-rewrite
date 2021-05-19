@@ -120,6 +120,7 @@ class icinga2::feature::influxdb(
   File {
     owner   => $user,
     group   => $group,
+    seltype => 'icinga2_var_lib_t',
   }
 
   $host_template = { measurement => $host_measurement, tags => $host_tags }
